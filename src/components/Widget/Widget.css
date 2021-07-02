@@ -1,0 +1,18 @@
+.widget {
+    border-radius: 10px;
+    background-color: #fff3f3;
+    height: 50px;
+    width: 130px;
+    margin: 5px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+
+.cell > .widget {
+    background-color: aquamarine;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
