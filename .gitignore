@@ -1,9 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 /.idea
-/src/components/Box
-/src/components/Card
-/src/components/Cell
 
 # dependencies
 /node_modules

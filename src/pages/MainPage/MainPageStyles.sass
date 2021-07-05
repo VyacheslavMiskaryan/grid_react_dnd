@@ -1,0 +1,63 @@
+@import '../../colors'
+
+.container
+    display: flex
+    flex-direction: column
+    width: 1100px
+
+.main-container
+    display: flex
+    margin-top: 20px
+
+.clear-button
+    align-self: center
+    width: 200px
+
+.widget-list
+    width: 180px
+    height: 700px
+    margin-right: 20px
+    border-radius: 5px
+    box-shadow: 1px 1px 6px $shadow-color
+    overflow: auto
+    background-color: $widgets-list-background
+
+.widget-list::-webkit-scrollbar
+    border-radius: 5px
+    width: 10px
+    background-color: $scrollbar-background
+
+.widget-list::-webkit-scrollbar-thumb
+    border-radius: 5px
+    background-color: $scrollbar-thumb-background
+
+.grid-container
+    margin-left: 10px
+    width: 900px
+    height: 700px
+    background-color: $grid-background
+    border-radius: 20px
+    overflow: auto
+
+.grid-container::-webkit-scrollbar
+    height: 12px
+    width: 12px
+    background-color: $scrollbar-background
+
+.grid-container::-webkit-scrollbar-thumb
+    background-color: $scrollbar-thumb-background
+
+::-webkit-scrollbar-thumb:hover
+    background-color: $scrollbar-thumb-second-background
+
+.row
+    height: 160px
+    min-width: 900px
+    display: flex
+
+.cell
+    width: 150px
+    height: 150px
+    background-color: $empty-cell-background
+    margin: 5px
+    border-radius: 15px

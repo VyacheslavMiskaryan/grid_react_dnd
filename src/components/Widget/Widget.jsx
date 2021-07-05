@@ -1,28 +1,27 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { useDrag } from 'react-dnd';
 import PropTypes from 'prop-types';
 
-import './Widget.css';
+import listToCell from '../../utils/listToCell';
+import cellToCell from '../../utils/cellToCell';
+
+import './WidgetStyles.sass';
 
 const Widget = ({
-  name, setItems,
+  id, name, items, setItems,
 }) => {
-  const changeItemColumn = (currentItem, columnName) => {
-    setItems((prevState) => prevState.map((elem) => ({
-      ...elem,
-      column: elem.name === currentItem.name ? columnName : elem.column,
-    })));
-  };
+  const widgetListName = 'WidgetsColumn';
   const [{ isDragging }, drag] = useDrag({
-    item: { name },
+    item: { id, name },
     type: 'item',
     end: (item, monitor) => {
       const dropResult = monitor.getDropResult();
-      if (dropResult?.name === 'Column 1') {
-        changeItemColumn(item, 'Column 1');
-      }
-      if (dropResult?.name === 'Cell 1') {
-        changeItemColumn(item, 'Cell 1');
+      if (dropResult?.name) {
+        if (dropResult.name === widgetListName) {
+          listToCell(item, dropResult.name, setItems);
+        } else {
+          cellToCell(items, setItems, item, dropResult.name, widgetListName, id);
+        }
       }
     },
     collect: (monitor) => ({
@@ -30,7 +29,7 @@ const Widget = ({
     }),
   });
 
-  const opacity = isDragging ? 0.4 : 1;
+  const opacity = useMemo(() => (isDragging ? 0.4 : 1), [isDragging]);
 
   return (
     <div
@@ -44,7 +43,13 @@ const Widget = ({
 };
 
 Widget.propTypes = {
+  id: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    column: PropTypes.string.isRequired,
+  })).isRequired,
   setItems: PropTypes.func.isRequired,
 };
 
