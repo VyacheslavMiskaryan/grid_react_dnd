@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
-import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import { useForm } from 'react-hook-form';
 
 import {
   Button, TextField, Typography, Container,
 } from '@material-ui/core';
 
-import { createGridAction } from '../../redux/actions';
+import { createGrid } from '../../redux/slices/gridSlices';
 
 import StartPageStyles from './StartPageStyles';
 
@@ -23,7 +23,7 @@ const StartPage = () => {
     const rows = Number(data.rows);
     const columns = Number(data.columns);
     if (rows > 0 && rows <= 10 && columns > 0 && columns <= 10) {
-      dispatch(createGridAction({ rows, columns }));
+      dispatch(createGrid({ rows, columns }));
       history.push('/main_page');
     }
   }, [dispatch, history]);

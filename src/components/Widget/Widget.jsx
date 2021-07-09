@@ -2,8 +2,8 @@ import React, { useMemo } from 'react';
 import { useDrag } from 'react-dnd';
 import PropTypes from 'prop-types';
 
-import listToCell from '../../utils/listToCell';
-import cellToCell from '../../utils/cellToCell';
+import listToCell from './utils/listToCell';
+import cellToCell from './utils/cellToCell';
 
 import './WidgetStyles.sass';
 

@@ -5,7 +5,7 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 import App from './App';
-import store from './redux/store';
+import store from './redux/store/store';
 
 ReactDOM.render(
   <Provider store={store}>

@@ -2,6 +2,8 @@ import React from 'react';
 import { useDrop } from 'react-dnd';
 import PropTypes from 'prop-types';
 
+import colorSet from '../../colors';
+
 const WidgetList = ({ children, className, title }) => {
   const [{ isOver }, drop] = useDrop({
     accept: 'item',
@@ -17,7 +19,7 @@ const WidgetList = ({ children, className, title }) => {
       ref={drop}
       className={className}
       style={{
-        background: isOver && 'rgba(133,190,246,0.5)',
+        background: isOver && colorSet.cellBackgroundIsOver,
       }}
     >
       {children}
