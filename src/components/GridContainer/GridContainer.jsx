@@ -38,7 +38,11 @@ const GridContainer = ({ items, setItems }) => {
 };
 
 GridContainer.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    column: PropTypes.string.isRequired,
+  })).isRequired,
   setItems: PropTypes.func.isRequired,
 };
 

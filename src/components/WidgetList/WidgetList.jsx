@@ -28,7 +28,7 @@ const WidgetList = ({ children, className, title }) => {
 };
 
 WidgetList.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element),
+  children: PropTypes.element,
   className: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
 };

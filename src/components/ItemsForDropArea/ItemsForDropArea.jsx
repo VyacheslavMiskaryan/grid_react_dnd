@@ -18,7 +18,11 @@ const ItemsForDropArea = ({ items, setItems, columnName }) => (
 );
 
 ItemsForDropArea.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.number.isRequired).isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    column: PropTypes.string.isRequired,
+  })).isRequired,
   setItems: PropTypes.func.isRequired,
   columnName: PropTypes.string.isRequired,
 };
